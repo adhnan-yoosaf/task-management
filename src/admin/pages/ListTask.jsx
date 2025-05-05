@@ -38,50 +38,60 @@ const ListTask = () => {
   return (
     <Container>
       <Row className='mt-5'>
-        <Col>
-          <Table striped bordered hover variant='dark'>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Priority</th>
-                <th>Deadline</th>
-                <th>Assigned To</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                tasks && tasks.map((task, i) => (
-                  <tr key={i}>
-                    <td>{i + 1}</td>
-                    <td>{task.name}</td>
-                    <td>{task.description}</td>
-                    <td>{task.priority}</td>
-                    <td>{task.deadline}</td>
-                    <td>
-                      {
-                        users.find((u) => u.id === Number(task.assignedTo)).fullName
-                      }
-                    </td>
-                    <td className='align-middle text-center'>
-                      <Link onClick={() => handleShow(task)}>
-                        <FaEdit />
-                      </Link>
-                    </td>
-                    <td className='align-middle text-center'>
-                      <Link onClick={() => handleTaskDelete(task.id)}>
-                        <MdDelete />
-                      </Link>
-                    </td>
+        {
+          tasks && tasks.length < 1 ? (
+            <Col>
+              <h3 className='text-center'>
+                No tasks found
+              </h3>
+            </Col>
+          ) : (
+            <Col className='table-responsive'>
+              <Table striped bordered hover variant='dark'>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Deadline</th>
+                    <th>Assigned To</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                   </tr>
-                ))
-              }
-            </tbody>
-          </Table>
-        </Col>
+                </thead>
+                <tbody>
+                  {
+                    tasks && tasks.map((task, i) => (
+                      <tr key={i}>
+                        <td>{i + 1}</td>
+                        <td>{task.name}</td>
+                        <td>{task.description}</td>
+                        <td>{task.priority}</td>
+                        <td>{task.deadline}</td>
+                        <td>
+                          {
+                            users.find((u) => u.id === Number(task.assignedTo)).fullName
+                          }
+                        </td>
+                        <td className='align-middle text-center'>
+                          <Link onClick={() => handleShow(task)}>
+                            <FaEdit />
+                          </Link>
+                        </td>
+                        <td className='align-middle text-center'>
+                          <Link onClick={() => handleTaskDelete(task.id)}>
+                            <MdDelete />
+                          </Link>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </Table>
+            </Col>
+          )
+        }
       </Row>
 
       <EditTaskModal

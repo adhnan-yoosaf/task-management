@@ -40,52 +40,54 @@ const ListUsers = () => {
                         <h3>No Users Found</h3>
                     </Col>
                 ) : (
-                    <Table striped bordered hover variant='dark'>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Fullname</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users && users.map((user, i) => (
-                                <tr key={i}>
-                                    <td>{i + 1}</td>
-                                    <td>{user.fullName}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.phone}</td>
-                                    <td>
-                                        <Form.Select
-                                            value={user.role}
-                                            onChange={(e) => handleUserRoleUpdate(user.id, e.target.value)}
-                                        >
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>
-                                        </Form.Select>
-                                    </td>
-                                    <td>
-                                        <Form>
-                                            <Form.Check
-                                                type="switch"
-                                                id="user-status-toggler"
-                                                label={user.status ? 'Active' : 'Inactive'}
-                                                checked={user.status}
-                                                onChange={() => handleUserStatusUpdate(user.id)}
-                                            />
-                                        </Form>
-                                    </td>
-                                    <td className='align-middle text-center'>
-                                        <MdDelete onClick={() => handleUserDelete(user.id)} style={{ cursor: 'pointer' }} />
-                                    </td>
+                    <Col className='table-responsive'>
+                        <Table striped bordered hover variant='dark'>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fullname</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Delete</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </Table>
+                            </thead>
+                            <tbody>
+                                {users && users.map((user, i) => (
+                                    <tr key={i}>
+                                        <td>{i + 1}</td>
+                                        <td>{user.fullName}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.phone}</td>
+                                        <td>
+                                            <Form.Select
+                                                value={user.role}
+                                                onChange={(e) => handleUserRoleUpdate(user.id, e.target.value)}
+                                            >
+                                                <option value="admin">Admin</option>
+                                                <option value="user">User</option>
+                                            </Form.Select>
+                                        </td>
+                                        <td>
+                                            <Form>
+                                                <Form.Check
+                                                    type="switch"
+                                                    id="user-status-toggler"
+                                                    label={user.status ? 'Active' : 'Inactive'}
+                                                    checked={user.status}
+                                                    onChange={() => handleUserStatusUpdate(user.id)}
+                                                />
+                                            </Form>
+                                        </td>
+                                        <td className='align-middle text-center'>
+                                            <MdDelete onClick={() => handleUserDelete(user.id)} style={{ cursor: 'pointer' }} />
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </Col>
                 )}
             </Row>
         </Container>
