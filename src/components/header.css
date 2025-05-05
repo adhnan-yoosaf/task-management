@@ -1,0 +1,38 @@
+
+.profile-dropdown button{
+    color: grey;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: transparent;
+    border: none;
+}
+.profile-dropdown button svg{
+    text-align: center;
+}
+.profile-dropdown button:hover,.btn.show{
+    color: grey;
+    background-color: transparent !important;
+    border: 1px solid grey;
+}
+
+.profile-dropdown .dropdown-menu[data-bs-popper]{
+    right: 0px;
+    left: auto;
+    background-color: #1e1e1e ;
+}
+
+.profile-dropdown .dropdown-item:hover{
+    background-color: #282828;
+}
+
+.profile-dropdown .dropdown-divider{
+    background-color: #000;
+}
+
+.profile-dropdown .dropdown-toggle::after{
+    display: none;
+}
+.header-logo{
+    width: 70px;
+}

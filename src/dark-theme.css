@@ -1,0 +1,48 @@
+body {
+    background-color: #121212 !important;
+    color: #f8f9fa !important;
+}
+
+.card,
+.accordion-item,
+.form-control,
+.navbar,
+.modal-content,
+.form-select {
+    background-color: #1e1e1e !important;
+    color: #f8f9fa !important;
+}
+
+.btn,
+.btn-primary,
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-success,
+.btn-outline-secondary,
+.btn-danger,
+.btn-success {
+    color: #fff !important;
+}
+
+input::placeholder,textarea::placeholder {
+    color: #aaa !important;
+}
+
+.form-control:focus {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+    border-color: #6c757d;
+}
+
+.text-muted {
+    color: #adb5bd !important;
+}
+
+a,
+a:hover {
+    color: #0d6efd !important;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
